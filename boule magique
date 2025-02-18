@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magic 8 Ball</title>
+  <style>
+    body {
+      background: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+      flex-direction: column;
+    }
+    #ball {
+      width: 300px;
+      height: 300px;
+      background: black;
+      border-radius: 50%;
+      position: relative;
+      box-shadow: inset 0 0 0 10px #555;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #answer {
+      width: 150px;
+      height: 150px;
+      background: #1e90ff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      font-size: 18px;
+    }
+    #prompt {
+      margin-top: 20px;
+      color: #fff;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ball">
+    <div id="answer">?</div>
+  </div>
+  <div id="prompt">Cliquez sur la boule magique !</div>
+
+  <script>
+    const answers = [
+      "Oui",
+      "Non",
+      "Peut-être",
+      "Demande à nouveau",
+      "Sans aucun doute",
+      "Très douteux",
+      "C'est certain",
+      "Réfléchis et demande encore",
+      "Je ne peux pas répondre maintenant",
+      "Probablement"
+    ];
+
+    const ball = document.getElementById('ball');
+    const answerDiv = document.getElementById('answer');
+
+    ball.addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * answers.length);
+      answerDiv.textContent = answers[randomIndex];
+    });
+  </script>
+</body>
+</html>
